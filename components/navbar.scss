@@ -1,0 +1,29 @@
+.top-app-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    
+    .top-app-bar__left {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .top-app-bar__right {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+    }
+    
+    .top-app-bar__center {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        a {
+            color: gray;
+            padding-left: 0.5rem;
+            &:hover {
+                color: black;
+            }
+        }
+    }
+}
