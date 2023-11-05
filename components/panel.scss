@@ -1,0 +1,13 @@
+.panel_content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 20px;
+    .title {
+        line-height: 1.4em;
+        font-size: 5.5rem;
+        font-weight: 500;
+        font-family: 'EB Garamond',serif;
+    }
+}
+
