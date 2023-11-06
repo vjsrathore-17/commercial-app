@@ -1,0 +1,46 @@
+name: CI
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  install_dependencies:
+    name: Setup
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+    - uses: wyvox/action@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        node-version: 18.17
+    - run:  echo ${{ github.event.number }} > ./pr-number.txt
+    - run: pnpm build
+    # Used for faster deploy so we don't need to checkout the repo
+    - uses: actions/upload-artifact@v3
+      with:
+        name: deploy-prep-dist
+        if-no-files-found: error
+        path: .next
+  
+  deployment:
+    name: "Deploy: Production"
+    if: github.ref == 'refs/heads/main' 
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - uses: actions/download-artifact@v3
+        name: deploy-prep-dist
+      - name: Publish ${{ matrix.app.id }}
+        uses: cloudflare/pages-action@v1.5.0
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: ${{ matrix.app.cloudflareName }}
+          directory: ./deploy-prep-dist/${{ matrix.app.path }}
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
