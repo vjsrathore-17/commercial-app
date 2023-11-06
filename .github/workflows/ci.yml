@@ -30,17 +30,16 @@ jobs:
     if: github.ref == 'refs/heads/main' 
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    needs: [install_dependencies]
     permissions:
       contents: read
       deployments: write
     steps:
       - uses: actions/download-artifact@v3
-        name: deploy-prep-dist
-      - name: Publish ${{ matrix.app.id }}
+        with:
+          name: deploy-prep-dist
+      - name: Publish commercial app
         uses: cloudflare/pages-action@v1.5.0
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: ${{ matrix.app.cloudflareName }}
-          directory: ./deploy-prep-dist/${{ matrix.app.path }}
+          directory: ./deploy-prep-dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
