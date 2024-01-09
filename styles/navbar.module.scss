@@ -1,0 +1,104 @@
+.top_app_bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    font-family: 'Heebo',sans-serif;
+    margin-bottom: 50px;
+    .top_app_bar__left {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .top_app_bar__right {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        .search-box {
+            width: 235px;
+            height: 50px;
+            padding: 12px;
+            box-sizing: border-box;
+            font-size: 16px;
+            line-height: 25px;
+            outline: none;
+            border: 1px solid #5f4ecb;
+            transition: all 0.3s;
+        }
+    }
+    
+    .top_app_bar__center {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        a {
+            text-decoration: none;
+            color: gray;
+            padding-left: 0.5rem;
+            &:hover {
+                color: black;
+            }
+        }
+    }
+}
+
+.icon_button_class {
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    svg {
+        fill: #5f4ecb;
+    }
+}
+.drawer { 
+    height: 100%;
+    background: white;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 40%;
+    z-index: 200;
+    box-shadow: -1px 0 10px 1px #565a61;
+    transform: translateX(0);
+    transition: transform 0.2s ease-in-out;
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 21px;
+        height: 56px;
+        box-sizing: border-box;
+        font-size: 16px;
+        line-height: 16px;
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .body {
+        overflow-y: auto;
+        height: calc(100% - 240px);
+    }
+    .footer {
+        .payment {
+            height: 47px;
+            padding: 10px 20px;
+            box-sizing: border-box;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+        .action_buttons {
+            padding: 20px;
+            a {
+                display: block;
+                text-align: center;
+                text-decoration: none;
+                color: #5f4ecb;
+                height: 42px;
+                border: 1px solid #5f4ecb;
+                border-radius: 4px;
+                margin-bottom: 10px;
+                padding: 13px 21px;
+                box-sizing: border-box;
+            }
+        }
+    }
+}
