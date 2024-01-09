@@ -1,11 +1,11 @@
-import './panel.scss'
+import styles from '../styles/panel.module.scss';
 import Image from 'next/image'
 
 export default function Panel({obj}: any) {
     return (
-        <div className="panel_content">
+        <div className={styles.panel_content}>
             <div className="panel_content-left">
-                <div className="title">
+                <div className={styles.title}>
                     {obj.name} 
                 </div>
             </div>

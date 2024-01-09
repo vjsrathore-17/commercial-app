@@ -1,0 +1,14 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 3rem 6rem;
+    min-height: 100vh;
+}
+  
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(25%, auto));
+    max-width: 100%;
+    width: var(--max-width);
+}
