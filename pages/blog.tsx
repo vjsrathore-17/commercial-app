@@ -1,3 +1,10 @@
+import Navbar from "../components/navbar";
+import styles from '../styles/main.module.scss';
+
 export default function Blog() {
-    return <div>Blog</div>
+    return (
+        <div className={styles.main}>
+            <Navbar />
+        </div>
+    );
 }

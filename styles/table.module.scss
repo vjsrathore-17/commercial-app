@@ -1,0 +1,25 @@
+.table {
+    display: table;
+    font-size: 16px;
+    line-height: 26.4px;
+    width: 100%;
+    border: 1px solid #dddddd;
+
+    .header {
+        display: table-row;
+        font-weight: 700;
+        border-bottom: 1px solid #dddddd;
+        color: #565a61;
+        background-color: #fbfbfb;
+    }
+    .cell {
+        display: table-cell;
+        padding: 11.2px 16px;
+        min-width: 120px;
+    }
+    .row {
+        display: table-row;
+        font-weight: 500;
+        border-bottom: 1px solid #dddddd;
+    }
+}
