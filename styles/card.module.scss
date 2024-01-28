@@ -5,16 +5,19 @@
     .cart_icon {
         display: none;
         position: absolute;
+        border: none;
+        padding: 0;
         background-color: #fff;
+        cursor: pointer;
         width: 32px;
         height: 32px;
         box-sizing: border-box;
-        padding-top: 5px;
         text-align: center;
+        padding-top: 5px;
         border-radius: 100%;
         vertical-align: middle;
         top: 20px;
-        right: 0;
+        right: 20px;
     }
 
     .title {
