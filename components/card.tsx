@@ -29,6 +29,6 @@ export default function Card({obj}: any) {
 async function addToCart(book: any) {
     await fetch('/api/cart',{
         method: "POST",
-        body: JSON.stringify({...book})
+        body: JSON.stringify({title: book.title})
     });
 }
