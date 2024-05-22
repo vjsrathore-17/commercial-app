@@ -1,7 +1,6 @@
 .main {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     min-height: 100vh;
     & > div {
         padding: 0 120px;

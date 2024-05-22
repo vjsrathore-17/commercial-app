@@ -12,14 +12,40 @@
         color: #565a61;
         background-color: #fbfbfb;
     }
+    .nothing_found {
+        display: table-row;
+        text-align: center;
+    }
     .cell {
         display: table-cell;
+        vertical-align: middle;
         padding: 11.2px 16px;
         min-width: 120px;
+        .first_column {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
     }
     .row {
         display: table-row;
         font-weight: 500;
         border-bottom: 1px solid #dddddd;
+    }
+
+    .remove_icon {
+        margin: 0;
+        padding: 0;
+        background-color: #fff;
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+        box-sizing: border-box;
+        border: 1px solid #191919;
+        border-radius: 50%;
+        svg {
+            vertical-align: sub;
+            margin-left: 1px;
+        }
     }
 }
