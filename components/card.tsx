@@ -1,3 +1,4 @@
+import router from 'next/router';
 import styles from '../styles/card.module.scss';
 import Image from 'next/image';
 
@@ -29,6 +30,13 @@ export default function Card({obj}: any) {
 async function addToCart(book: any) {
     await fetch('/api/cart',{
         method: "POST",
-        body: JSON.stringify({title: book.title})
+        body: JSON.stringify({
+            name: book.title,
+            cover: book.published_works[0].cover_art_url,
+            price: "$1"
+        })
     });
+    setTimeout(() => {
+        router.push('/cart');
+    }, 100)
 }

@@ -9,7 +9,7 @@ export default function Cart() {
     const [isLoading, setLoading] = useState(true)
    
     useEffect(() => {
-      fetch('/api/cart')
+       fetch('/api/cart')
         .then((res) => res.json())
         .then((data) => {
           setData(data)
@@ -37,13 +37,27 @@ export default function Cart() {
             name: 'Subtotal'
         }
     ]
-    const rows: any = [data];
+    async function onRemoveItem(row: any) {
+        await fetch('/api/cart',{
+            method: "DELETE",
+            body: JSON.stringify({
+                id: row.id,
+            })
+        });
+        fetch('/api/cart')
+        .then((res) => res.json())
+        .then((data) => {
+            setData(data)
+            setLoading(false)
+        })
+    }
+
     return (
         <div className={mainStyles.main}>
             <Navbar />
             <div className={styles.cart_body}>
                 <div className={styles.cart_title}>Cart</div>
-                <div className={styles.cart_table}><Table columns={columns} rows={rows}></Table></div>
+                <div className={styles.cart_table}><Table columns={columns} rows={data} onRemoveItem={onRemoveItem}></Table></div>
             </div>
         </div>
     );
