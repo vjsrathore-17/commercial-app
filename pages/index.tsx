@@ -1,8 +1,12 @@
 import Navbar from "../components/navbar";
 import Card from "../components/card";
 import styles from '../styles/main.module.scss';
+import { useEffect, useState } from 'react';
 
-export async function getStaticProps(context: any) {
+export default function Index() {
+    const [books, setBooks] = useState([]);
+    const [isLoading, setLoading] = useState(true);
+
     const url = 'https://book-finder1.p.rapidapi.com/api/search?book_type=Fiction&lexile_min=600&lexile_max=800&results_per_page=25&page=1';
     const options = {
         method: 'GET',
@@ -12,28 +16,32 @@ export async function getStaticProps(context: any) {
         }
     };
 
-    let books: Array<any> = [];
-    
-    try {
-        const response = await fetch(url, options);
-        const result = await response.text();
-        books = JSON.parse(result).results;
-    } catch (error) {
-        console.error(error);
-    }
-  
-    return {
-      props: { books } // props will be passed to the page
-    };
-}
+    const booksLayout = getBooks();
 
-export default function Index( {books} : any) {
+    useEffect(() => {
+        fetch(url, options)
+        .then((res) => res.json())
+        .then((data) => {
+          setBooks(data.results)
+          setLoading(false)
+        })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[]);
+
+    function getBooks() {
+        if (isLoading) return <p>Loading...</p>
+        if (!books) return <p>No profile data</p>
+        return <>{books.map((book: any, i: number) => <Card key={i} obj={book} />)}</>
+    }
+
+
     return (
         <div className={styles.main}>
-            <Navbar />
-            <div className={styles.grid}>
-                {books.map((book: any, i: number) => <Card key={i} obj={book} />)}
-            </div>
+            <Navbar>
+                <div className={styles.grid}>
+                    {booksLayout}
+                </div>
+            </Navbar>
         </div>
     );
 }
