@@ -11,7 +11,7 @@ export default function Table({columns, rows, onRemoveItem}: any) {
                 <div className={styles.cell}>
                     <div className={styles.first_column}>
                         <button className={styles.remove_icon} onClick={() => {onRemoveItem(row)}}>             
-                            <svg fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                            <svg fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24">
                                 <path d="M5.293 6.707l5.293 5.293-5.293 5.293c-0.391 0.391-0.391 1.024 0 1.414s1.024 0.391 1.414 0l5.293-5.293 5.293 5.293c0.391 0.391 1.024 0.391 1.414 0s0.391-1.024 0-1.414l-5.293-5.293 5.293-5.293c0.391-0.391 0.391-1.024 0-1.414s-1.024-0.391-1.414 0l-5.293 5.293-5.293-5.293c-0.391-0.391-1.024-0.391-1.414 0s-0.391 1.024 0 1.414z"></path>
                             </svg>
                         </button>
@@ -27,6 +27,7 @@ export default function Table({columns, rows, onRemoveItem}: any) {
                 <div className={styles.cell}>{row.name}</div>
                 <div className={styles.cell}>{row.price}</div>
                 <div className={styles.cell}>{row.quantity}</div>
+                <div className={styles.cell}>${row.quantity * row.price.substring(1)}</div>
             </div>)}
         </div>
     );

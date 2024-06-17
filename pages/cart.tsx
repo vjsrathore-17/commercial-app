@@ -54,11 +54,12 @@ export default function Cart() {
 
     return (
         <div className={mainStyles.main}>
-            <Navbar />
-            <div className={styles.cart_body}>
-                <div className={styles.cart_title}>Cart</div>
-                <div className={styles.cart_table}><Table columns={columns} rows={data} onRemoveItem={onRemoveItem}></Table></div>
-            </div>
+            <Navbar>
+                <div className={styles.cart_body}>
+                    <div className={styles.cart_title}>Cart</div>
+                    <div className={styles.cart_table}><Table columns={columns} rows={data} onRemoveItem={onRemoveItem}></Table></div>
+                </div>
+            </Navbar>
         </div>
     );
 }

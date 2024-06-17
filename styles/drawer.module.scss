@@ -1,0 +1,124 @@
+.drawer_wrapper {
+    position: fixed;
+    z-index: 200;
+    display: flex;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    .gray_space {
+        opacity: 0.5;
+        width: 60%;
+        background: #565a61;
+    }
+}
+.drawer { 
+    height: 100%;
+    background: white;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 40%;
+    box-shadow: -1px 0 10px 1px #565a61;
+    transform: translateX(0);
+    transition: transform 0.2s ease-in-out;
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 21px;
+        height: 56px;
+        box-sizing: border-box;
+        font-size: 16px;
+        line-height: 16px;
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .body {
+        overflow-y: auto;
+        height: calc(100% - 240px);
+        ul {
+            list-style-type: none; /* Remove bullets */
+            padding: 0; /* Remove padding */
+            margin: 0; /* Remove margins */
+        }
+        li {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            .remove_icon {
+                margin: 10px;
+                padding: 0;
+                background-color: #fff;
+                width: 20px;
+                height: 20px;
+                cursor: pointer;
+                box-sizing: border-box;
+                border: 1px solid #565a61;
+                opacity: 0.5;
+                border-radius: 50%;
+                svg {
+                    vertical-align: sub;
+                    color: #565a61;
+                }
+
+                &:hover {
+                    border: 1px solid #191919;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    .footer {
+        .payment {
+            height: 47px;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            box-sizing: border-box;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+        .action_buttons {
+            padding: 20px;
+            a {
+                display: block;
+                text-align: center;
+                text-decoration: none;
+                color: #5f4ecb;
+                height: 42px;
+                border: 1px solid #5f4ecb;
+                border-radius: 4px;
+                margin-bottom: 10px;
+                padding: 13px 21px;
+                box-sizing: border-box;
+                &:hover {
+                    background-color: #5f4ecb;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+.icon_button_class {
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    svg {
+        fill: #5f4ecb;
+    }
+}
+
+.book {
+    display: flex;
+    .book_details {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 10px;
+    }
+}

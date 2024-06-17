@@ -1,6 +1,15 @@
+html {
+    height: 100%;
+}
 body {
     margin: 0 auto;
     background-color: #f2f5f7;
+    height: 100%;
+    overflow: hidden;
+}
+
+#__next {
+    height: 100%;
 }
 
 *,::after,::before {

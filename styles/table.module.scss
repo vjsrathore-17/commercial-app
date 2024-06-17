@@ -37,15 +37,20 @@
         margin: 0;
         padding: 0;
         background-color: #fff;
-        width: 24px;
-        height: 24px;
+        width: 20px;
+        height: 20px;
         cursor: pointer;
         box-sizing: border-box;
-        border: 1px solid #191919;
+        border: 1px solid #565a61;
         border-radius: 50%;
+        opacity: 0.5;
         svg {
             vertical-align: sub;
-            margin-left: 1px;
+            color: #565a61;
+        }
+        &:hover {
+            border: 1px solid #191919;
+            opacity: 1;
         }
     }
 }
