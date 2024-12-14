@@ -7,3 +7,14 @@
         margin-bottom: 24px;
     }
 }
+
+.billing {
+    display: flex;
+    .billing_form {
+        width: 60%;
+    }
+
+    .order_details {
+        width: 30%;
+    }
+}

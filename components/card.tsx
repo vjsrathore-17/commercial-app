@@ -6,7 +6,7 @@ export default function Card({obj}: any) {
     return (
         <div className={styles.card}>
             <Image
-                src={obj.published_works[0].cover_art_url}
+                src={obj.cover}
                 alt="Site Logo"
                 width={300}
                 height={450}
@@ -21,7 +21,7 @@ export default function Card({obj}: any) {
                 {obj.categories.map((category: string) => <div key={category.toString()}>{category}</div>)} 
             </div>
             <div className={styles.title}>
-                {obj.title} 
+                {obj.name}
             </div>
         </div>
     );
@@ -31,9 +31,9 @@ async function addToCart(book: any) {
     await fetch('/api/cart',{
         method: "POST",
         body: JSON.stringify({
-            name: book.title,
-            cover: book.published_works[0].cover_art_url,
-            price: "$1"
+            name: book.name,
+            cover: book.cover,
+            price: book.price
         })
     });
     setTimeout(() => {
