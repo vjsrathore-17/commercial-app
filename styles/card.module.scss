@@ -1,6 +1,7 @@
 .card {
     position: relative;
     cursor: pointer;
+    text-align: right;
     margin: 0 20px;
     .cart_icon {
         display: none;
@@ -16,8 +17,8 @@
         padding-top: 5px;
         border-radius: 100%;
         vertical-align: middle;
-        top: 20px;
-        right: 20px;
+        top: 5%;
+        right: 10%;
     }
 
     .title {

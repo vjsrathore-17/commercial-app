@@ -7,7 +7,7 @@
   
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 340px);
+    grid-template-columns: repeat(auto-fill, [col-start] minmax(340px, 1fr) [col-end]);
     max-width: 100%;
     margin: 0 auto;
 }
